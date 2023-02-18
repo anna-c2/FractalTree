@@ -34,7 +34,7 @@ public void draw()
     if (num <= 150) {
       num++;
       op-=2;
-      println(op);
+      
     }
   }
   if (die == true){
