@@ -2,6 +2,8 @@ private double fractionLength = .8;
 private int smallestBranch = 10;
 private double branchAngle = 0.55;
 private int num = 0;
+int op = 10;
+int sunOp = 0;
 private boolean die = false;
 public void setup()
 {
@@ -12,7 +14,14 @@ public void setup()
 
 public void draw()
 {
-  background(#A7DCF0);
+
+  background(#C9EAFF);//#A7DCF0);
+   noStroke();
+  fill(#F2D218);
+  ellipse(100,100,100,100);
+  strokeWeight(2);
+  fill(#277EB7, op);
+  rect(0,0,700,700);
   stroke(#676262);
   line(350, 700, 350, 500);
   stroke(#057E81);
@@ -20,18 +29,22 @@ public void draw()
   if (die == false) {
     if (num == 151) {
       die = true;
+      op = 10;
     }
     if (num <= 150) {
       num++;
+      op-=2;
+      println(op);
     }
   }
   if (die == true){
     if(num==0){
       die=false;
-   }
+    }
     if(num > 0){
       num--;
-   }
+      op+=2;
+    }
   }
 }
 public void drawBranches(int x, int y, double branchLength, double angle)
